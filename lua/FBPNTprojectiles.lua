@@ -19,7 +19,7 @@ local util = import('/lua/utilities.lua')
 local NukeProjectile = DefaultProjectileFile.NukeProjectile
 
 Flamethrower01 = Class(EmitterProjectile) {
-    FxTrails = {'/mods/Future Battlefield Pack New Techs/Effects/Emitters/MobileFlamerthrowerTrailFX.bp',},
+    FxTrails = {'/mods/Future Battlefield Pack New Techs/Effects/Emitters/FlamerthrowerTrailFX.bp',},
     
     FxImpactTrajectoryAligned = false,
 
@@ -30,7 +30,7 @@ Flamethrower01 = Class(EmitterProjectile) {
     FxImpactUnderWater = {},
 }
 Flamethrower02 = Class(EmitterProjectile) {
-    FxTrails = {'/mods/Future Battlefield Pack New Techs/Effects/Emitters/MobileFlamerthrowerTrailFX.bp',},
+    FxTrails = {'/mods/Future Battlefield Pack New Techs/Effects/Emitters/FlamerthrowerTrailFX.bp',},
        FxTrailScale = 0.5,
     
     FxImpactTrajectoryAligned = false,
