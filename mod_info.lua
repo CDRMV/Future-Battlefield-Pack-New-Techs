@@ -1,0 +1,17 @@
+name = "(F.B.P.) Future Battlefield Pack: New Techs"
+uid = "5t3edt-btz6-9438-h6ui-967gt56fa3"
+version = 1.0
+copyright = "Copyright © 2017, CDRMV (aka CDR Deadalus)"
+description = "'Future Battlefield Pack: New Techs' is a Submod for F.B.P: Legends, which adds several new Units and Features into the Game."
+author = "CDRMV (aka CDR Deadalus)"
+url = "http://www.moddb.com/mods/fbp-future-battlefield-pack"
+icon = "/mods/Future Battlefield Pack New Techs/Icon.png" 
+selectable = true
+enabled = true
+exclusive = false
+ui_only = false
+requires = { }
+requiresNames = { }
+conflicts = { }
+before = { }
+after = { }
