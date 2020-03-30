@@ -1,0 +1,15 @@
+MeshBlueprint {
+    LODs = {
+        {
+            MeshName = '/effects/Entities/Sphere01/Sphere01_lod0.scm',
+            AlbedoName = 'Shield02_Albedo.dds',
+            SpecularName = 'Shield02_Specular.dds',
+            SecondaryName = '/mods/Future Battlefield Pack/effects/Entities/Shield02/Shield02_Secondary.dds',
+            ShaderName = 'ShieldUEF',
+            LODCutoff = 1000,
+        },
+    },
+    IconFadeInZoom = 4,
+    SortOrder = 1000,
+    StraddleWater = true,
+}
