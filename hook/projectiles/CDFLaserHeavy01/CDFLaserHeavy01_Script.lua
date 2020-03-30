@@ -8,7 +8,7 @@ local EffectTemplate = import('/lua/EffectTemplates.lua')
 CDFLaserHeavy01 = Class(import('/lua/sim/defaultprojectiles.lua').SinglePolyTrailProjectile) {
 	FxImpactTrajectoryAligned =true,
 
-	PolyTrail = '/mods/Future Battlefield Pack/effects/Emitters/TurboLaserred02_emit.bp',
+	PolyTrail = '/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserred02_emit.bp',
 
     FxImpactUnit = EffectTemplate.TRiotGunHitUnit01,
     FxImpactProp = EffectTemplate.TRiotGunHitUnit01,
