@@ -9,17 +9,12 @@
 #****************************************************************************
 local TWalkingLandUnit = import('/lua/terranunits.lua').TWalkingLandUnit
 local Unit = import('/lua/sim/Unit.lua').Unit
-TAMPhalanxWeapon = import('/lua/terranweapons.lua').TAMPhalanxWeapon
+TDFMachineGunWeapon = import('/lua/terranweapons.lua').TDFMachineGunWeapon
 
 
 UEL0005 = Class(TWalkingLandUnit) {
     Weapons = {
-        ArmCannonTurret = Class(TAMPhalanxWeapon) {
-            DisabledFiringBones = {
-                'Torso', 'Head',  'Arm_Right_B01', 'Arm_Right_B02','Arm_Right_Muzzle',
-                'Arm_Left_B01', 'Arm_Left_B02','Arm_Left_Muzzle'
-                },
-        },
+        ArmCannonTurret = Class(TDFMachineGunWeapon) {},
     },
 }
 TypeClass = UEL0005

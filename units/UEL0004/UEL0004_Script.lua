@@ -14,12 +14,7 @@ local TSAMLauncher = import('/lua/terranweapons.lua').TSAMLauncher
 
 UEL0003 = Class(TWalkingLandUnit) {
     Weapons = {
-        ArmCannonTurret = Class(TSAMLauncher) {
-            DisabledFiringBones = {
-                'Torso', 'Head',  'Arm_Right_B01', 'Arm_Right_B02','Arm_Right_Muzzle',
-                'Arm_Left_B01', 'Arm_Left_B02','Arm_Left_Muzzle'
-                },
-        },
+        ArmCannonTurret = Class(TSAMLauncher) {},
     },
 }
 TypeClass = UEL0003
