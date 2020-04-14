@@ -9,8 +9,7 @@
 #****************************************************************************
 
 local TWalkingLandUnit = import('/lua/terranunits.lua').TWalkingLandUnit
-local WeaponFile = import('/lua/terranweapons.lua')
-local TDFLaserLightWeapon = WeaponFile.TDFLaserLightWeapon
+local TDFLaserLightWeapon = import('/lua/terranweapons.lua').TDFLaserLightWeapon
 
 UEL0112 = Class(TWalkingLandUnit) {
     Weapons = {
