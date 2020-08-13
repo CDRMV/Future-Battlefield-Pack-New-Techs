@@ -16,7 +16,7 @@ UnitBlueprint {
         KMoveDamping = 2,
         KTurn = 1.0,
         KTurnDamping = 1.5,
-        LiftFactor = 2,
+        LiftFactor = 7,
         MaxAirspeed = 12,
         MinAirspeed = 2,
         StartTurnDistance = 5,
@@ -62,6 +62,9 @@ UnitBlueprint {
     Categories = {
         'PRODUCTSC1',
         'SELECTABLE',
+        'BUILTBYTIER1FACTORY',
+        'BUILTBYTIER2FACTORY',
+        'BUILTBYTIER3FACTORY',
         'UEF',
 		'STRUCTURE',
         'AIR',
@@ -82,11 +85,12 @@ UnitBlueprint {
         SubThreatLevel = 0,
         SurfaceThreatLevel = 0.33,
     },
-    Description = 'Light Jetpack Ambush Bot',
+    Description = '<LOC uel0106_desc>Light Assault Bot',
     Display = {
 	    Abilities = {
-            'Jetpack',
+            'For deactivate the Jetpack use the upgrade in the construction bar',
         },
+        AnimationUpgrade = '/units/UEL0106/UEL0106_Afold.sca',
 		LayerChangeEffects = {
             AirLand = {
                 Effects = {
@@ -142,7 +146,14 @@ UnitBlueprint {
         BuildCostEnergy = 140,
         BuildCostMass = 35,
         BuildTime = 140,
+		BuildRate = 20,
+		BuildableCategory = {
+            'uel0106c',
+        },
 		MaintenanceConsumptionPerSecondEnergy = 20,
+        TeleportEnergyMod = 0.15,
+        TeleportMassMod = 1,
+        TeleportTimeMod = 0.01,
     },
     General = {
         Category = 'Utility',
@@ -158,24 +169,17 @@ UnitBlueprint {
             RULEUCC_Patrol = true,
             RULEUCC_Reclaim = false,
             RULEUCC_Repair = false,
-            RULEUCC_RetaliateToggle = true,
+            RULEUCC_RetaliateToggle = false,
             RULEUCC_Stop = true,
             RULEUCC_Transport = false,
         },
         FactionName = 'UEF',
         Icon = 'air',
-		ToggleCaps = {  
-            RULEUTC_WeaponToggle = true,
-        },
-        OrderOverrides = {      
-            RULEUTC_WeaponToggle = {
-                bitmapId = 'deploy',       
-                helpText = 'Deactivate Jetpack',
-            },         
-        },  
         TechLevel = 'RULEUTL_Basic',
         UnitName = 'Jet Marine Model-C1',
         UnitWeight = 1,
+		UpgradesTo = 'uel0106c',
+		UpgradesFrom = 'uel0106c',
     },
     Intel = {
         VisionRadius = 18,

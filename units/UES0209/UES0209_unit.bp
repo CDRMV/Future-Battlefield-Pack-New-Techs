@@ -283,7 +283,7 @@ UnitBlueprint {
             MuzzleSalvoSize = 1,
             MuzzleVelocity = 22,
             MuzzleVelocityReduceDistance = 85,
-            ProjectileId = '/mods/Future Battlefield Pack/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
+            ProjectileId = '/mods/Future Battlefield Pack New Techs/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
             ProjectilesPerOnFire = 1,
             RackBones = {
                 {
@@ -371,7 +371,7 @@ UnitBlueprint {
             MuzzleSalvoSize = 1,
             MuzzleVelocity = 22,
             MuzzleVelocityReduceDistance = 85,
-            ProjectileId = '/mods/Future Battlefield Pack/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
+            ProjectileId = '/mods/Future Battlefield Pack New Techs/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
             ProjectilesPerOnFire = 1,
             RackBones = {
                 {
@@ -459,7 +459,7 @@ UnitBlueprint {
             MuzzleSalvoSize = 1,
             MuzzleVelocity = 22,
             MuzzleVelocityReduceDistance = 85,
-            ProjectileId = '/mods/Future Battlefield Pack/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
+            ProjectileId = '/mods/Future Battlefield Pack New Techs/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
             ProjectilesPerOnFire = 1,
             RackBones = {
                 {
@@ -547,7 +547,7 @@ UnitBlueprint {
             MuzzleSalvoSize = 1,
             MuzzleVelocity = 22,
             MuzzleVelocityReduceDistance = 85,
-            ProjectileId = '/mods/Future Battlefield Pack/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
+            ProjectileId = '/mods/Future Battlefield Pack New Techs/projectiles/TDFGaussArtillery01/TDFGaussArtillery01_proj.bp',
             ProjectilesPerOnFire = 1,
             RackBones = {
                 {

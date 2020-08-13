@@ -66,7 +66,7 @@ UnitBlueprint {
     Description = 'Light Jetpack Ambush Bot',
     Display = {
 		Abilities = {
-            'Jetpack',
+            'For activate the Jetpack use the upgrade in the construction bar',
         },
         AnimationUpgrade = '/units/UEL0106/UEL0106_Afold.sca',
         AnimationDeath = {
@@ -126,7 +126,15 @@ UnitBlueprint {
     Economy = {
         BuildCostEnergy = 140,
         BuildCostMass = 35,
+		BuildRate = 20,
         BuildTime = 140,
+		BuildableCategory = {
+            'uel0106d',
+        },
+		MaintenanceConsumptionPerSecondEnergy = 20,
+        TeleportEnergyMod = 0.15,
+        TeleportMassMod = 1,
+        TeleportTimeMod = 0.01,
     },
     General = {
         Category = 'Utility',
@@ -147,18 +155,11 @@ UnitBlueprint {
         },
         FactionName = 'UEF',
         Icon = 'land',
-		ToggleCaps = {  
-            RULEUTC_WeaponToggle = true,
-        },
-        OrderOverrides = {      
-            RULEUTC_WeaponToggle = {
-                bitmapId = 'deploy',       
-                helpText = 'Activate Jetpack',
-            },         
-        },  
         TechLevel = 'RULEUTL_Basic',
         UnitName = 'Jet Marine Model-C1',
         UnitWeight = 1,
+		UpgradesTo = 'uel0106d',
+		UpgradesFrom = 'uel0106d',
     },
     Intel = {
         VisionRadius = 18,

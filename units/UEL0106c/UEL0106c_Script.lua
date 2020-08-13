@@ -20,50 +20,75 @@ UEL0106c = Class(TWalkingLandUnit) {
             },
         },
     },
-	--Inspired Code from 4DC's Sera Unit: Kyhku Oss
-	--Copyright/Credits goes to the 4DC Team
-     OnCreate = function(self, builder, layer)
-        TWalkingLandUnit.OnCreate(self,builder,layer)
-            
-        self.Jetpack = nil
-		
-    end, 
-            
-    OnScriptBitSet = function(self, bit)
-        TWalkingLandUnit.OnScriptBitSet(self, bit)
-        if bit == 1 then    	    
-    	    self:ForkThread(self.SpawnFlyingBot)    	    
-    	end
+
+    OnStartBuild = function(self, unitBeingBuilt, order )
+        TWalkingLandUnit.OnStartBuild(self,unitBeingBuilt, order)
+        #Fix up info on the unit id from the blueprint and see if it matches the 'UpgradeTo' field in the BP.
+        local unitid = self:GetBlueprint().General.UpgradesTo
+        self.UnitBeingBuilt = unitBeingBuilt
+        if unitBeingBuilt:GetUnitId() == unitid and order == 'Upgrade' then
+            ChangeState(self, self.UpgradingState)
+        end
     end,
     
-    ReceiveKills = function(self, unitKills)
-        if not self:IsDead() then
-            self.AddKills(self, unitKills) 
-        end   
-    end,  
-      
-    
-    SpawnFlyingBot = function(self)
-       if not self:IsDead() and self.Jetpack == nil then 
-           self.Jetpack = true
-                
-           self:SetUnSelectable(false) 
-           self:SetWeaponEnabledByLabel('ArmCannonTurret', false)
-           
-           self:RemoveToggleCap('RULEUTC_WeaponToggle') 
-           
-           IssueClearCommands({self}) 
-           
-           IssueStop({self})               
-			
-			local position = self:GetPosition()
-			self.Station01 = CreateUnitHPR('uel0106d', self:GetArmy(), position.x, position.y, position.z, 0, 0, 0)
+    IdleState = State {
+        Main = function(self)
+        end,
+    },
 
-			
-			self:Destroy()
-			flyingBot = nil
-       end
-   end,                
+    UpgradingState = State {
+        Main = function(self)
+            self:StopRocking()
+            local bp = self:GetBlueprint().Display
+            self:DestroyTarmac()
+            self:PlayUnitSound('UpgradeStart')
+            self:DisableDefaultToggleCaps()
+            if bp.AnimationUpgrade then
+                local unitBuilding = self.UnitBeingBuilt
+                self.AnimatorUpgradeManip = CreateAnimator(self)
+                self.Trash:Add(self.AnimatorUpgradeManip)
+                local fractionOfComplete = 0
+                self:StartUpgradeEffects(unitBuilding)
+                self.AnimatorUpgradeManip:PlayAnim(bp.AnimationUpgrade, false):SetRate(0)
+
+                while fractionOfComplete < 1 and not self:IsDead() do
+                    fractionOfComplete = unitBuilding:GetFractionComplete()
+                    self.AnimatorUpgradeManip:SetAnimationFraction(fractionOfComplete)
+                    WaitTicks(1)
+                end
+                if not self:IsDead() then
+                    self.AnimatorUpgradeManip:SetRate(1)
+                end
+            end
+        end,
+
+        OnStopBuild = function(self, unitBuilding)
+            TWalkingLandUnit.OnStopBuild(self, unitBuilding)
+            self:EnableDefaultToggleCaps()
+            
+            if unitBuilding:GetFractionComplete() == 1 then
+                NotifyUpgrade(self, unitBuilding)
+                self:PlayUnitSound('UpgradeEnd')
+                self:Destroy()
+            end
+        end,
+
+        OnFailedToBuild = function(self)
+            TWalkingLandUnit.OnFailedToBuild(self)
+            self:EnableDefaultToggleCaps()
+            
+            if self.AnimatorUpgradeManip then self.AnimatorUpgradeManip:Destroy() end
+            
+            self:PlayUnitSound('UpgradeFailed')
+            self:PlayActiveAnimation()
+            ChangeState(self, self.IdleState)
+        end,
+        
+    },
+    
+    PlayActiveAnimation = function(self)
+        
+    end,
 }
 TypeClass = UEL0106c
 

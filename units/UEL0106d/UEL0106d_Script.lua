@@ -24,57 +24,7 @@ UEL0106d = Class(TAirUnit) {
     },
 	
 	    BeamExhaustCruise = '/effects/emitters/air_idle_trail_beam_01_emit.bp',
-        BeamExhaustIdle = '/effects/emitters/air_idle_trail_beam_01_emit.bp',  
-
-	OnCreate = function(self, builder, layer)
-		TAirUnit. OnCreate(self,builder,layer)     
-		-- Preload Globals 
-		self.Jetpack = nil
-		self.AirBotDest = nil                 
-    end,
-   
-	OnStopBeingBuilt = function(self,builder,layer)
-		TAirUnit.OnStopBeingBuilt(self,builder,layer) 
-		
-		-- Enable fuel checking
-		--self:ForkThread(self.HeartBeatFuelCheck)
-		       
-	end,
-                                
-    OnScriptBitSet = function(self, bit)
-        TAirUnit.OnScriptBitSet(self, bit)
-        if bit == 1 then
-           self:ForkThread(self.SpawnLandBot)
-       end
-    end,
-     
-	--domino says the transferre unit function in the spawn bot function transferres kills and vet.. so i dont think this is needed.. 
-    ReceiveKills = function(self, unitKills)
-        if not self:IsDead() then
-            self.AddKills(self, unitKills)
-        end   
-    end,   
-   
-    SpawnLandBot = function(self)
-       if not self:IsDead() and self.Jetpack == nil then 
-           self.Jetpack = true
-                
-           self:SetUnSelectable(false) 
-           self:SetWeaponEnabledByLabel('ArmCannonTurret', false)
-           
-           self:RemoveToggleCap('RULEUTC_WeaponToggle') 
-           
-           IssueClearCommands({self}) 
-           
-           IssueStop({self})               
-			
-			local position = self:GetPosition()
-			self.Station01 = CreateUnitHPR('uel0106c', self:GetArmy(), position.x, position.y, position.z, 0, 0, 0)
-			
-			self:Destroy()
-			flyingBot = nil
-       end
-   end,           
+        BeamExhaustIdle = '/effects/emitters/air_idle_trail_beam_01_emit.bp',       
 }
 TypeClass = UEL0106d
 
