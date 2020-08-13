@@ -1,0 +1,12 @@
+TrailEmitterBlueprint {
+	BlueprintId = 'plasma_cannon_polytrail_01',
+	Lifetime = 100.0,
+    TrailLength = 4.0, 
+    Size = 0.08,
+    SortOrder = 0,
+    BlendMode = 3,
+    TextureRepeatRate = 8000,
+    LODCutoff = 0,
+	RepeatTexture = [[/mods/Future Battlefield Pack New Techs/textures/particles/maser2.dds]],
+	RampTexture = [[/mods/Future Battlefield Pack New Techs/textures/particles/maser2.dds]],
+}
