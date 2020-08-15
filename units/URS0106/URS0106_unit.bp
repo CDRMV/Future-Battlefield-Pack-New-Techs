@@ -249,7 +249,7 @@ UnitBlueprint {
             },
             FiringRandomness = 0.2,
             FiringTolerance = 2,
-            Label = 'AAGun',
+            Label = 'Gun',
             MaxRadius = 15,
             MuzzleSalvoDelay = 0,
             MuzzleSalvoSize = 1,
@@ -298,7 +298,7 @@ UnitBlueprint {
             Turreted = true,
             WeaponCategory = 'Direct Fire Naval',
         },
-		        {
+		{
             AboveWaterTargetsOnly = true,
             Audio = {
                 Fire = Sound {
@@ -318,7 +318,7 @@ UnitBlueprint {
             },
             FiringRandomness = 0.2,
             FiringTolerance = 2,
-            Label = 'AAGun',
+            Label = 'Gun',
             MaxRadius = 15,
             MuzzleSalvoDelay = 0,
             MuzzleSalvoSize = 1,
@@ -328,8 +328,8 @@ UnitBlueprint {
             RackBones = {
                 {
                     MuzzleBones = {
-                        'Back_Muzzle01',
-						'Back_Muzzle02',
+                        'Back_Turret_Muzzle01',
+						'Back_Turret_Muzzle02',
                     },
                     RackBone = 'Back_Turret_Barrel',
                 },
@@ -354,7 +354,7 @@ UnitBlueprint {
             },
             TargetRestrictDisallow = 'UNTARGETABLE',
             TrackingRadius = 1.15,
-            TurretBoneMuzzle = 'Back_Muzzle01',
+            TurretBoneMuzzle = 'Back_Turret_Muzzle01',
             TurretBonePitch = 'Back_Turret_Barrel',
             TurretBoneYaw = 'Back_Turret',
             TurretDualManipulators = false,

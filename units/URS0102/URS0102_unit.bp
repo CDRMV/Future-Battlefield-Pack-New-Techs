@@ -522,7 +522,7 @@ UnitBlueprint {
             MuzzleSalvoDelay = 0,
             MuzzleSalvoSize = 1,
             MuzzleVelocity = 60,
-            ProjectileId = '/mods/future battlefield pack/hook/projectiles/caaautocannon02/caaautocannon02_proj.bp',
+            ProjectileId = '/mods/Future Battlefield Pack New Techs/hook/projectiles/caaautocannon02/caaautocannon02_proj.bp',
             ProjectileLifetimeUsesMultiplier = 1.25,
             RackBones = {
                 {
@@ -566,7 +566,7 @@ UnitBlueprint {
             TurretPitchRange = 80,
             TurretPitchSpeed = 180,
             TurretYaw = 0,
-            TurretYawRange = 360,
+            TurretYawRange = 140,
             TurretYawSpeed = 180,
             Turreted = true,
             WeaponCategory = 'Anti Air',
