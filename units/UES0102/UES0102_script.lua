@@ -17,22 +17,6 @@ UES0102 = Class(TAirStagingPlatformUnit) {
         AAGun = Class(TAALinkedRailgun) {
         },
     },
-
-    RadarThread = function(self)
-        local spinner = CreateRotator(self, 'Spinner04', 'x', nil, 0, 90, -90)
-        self.Trash:Add(spinner)
-        while true do
-            WaitFor(spinner)
-            spinner:SetTargetSpeed(90)
-            WaitFor(spinner)
-            spinner:SetTargetSpeed(-90)
-        end
-    end,
-
-    OnStopBeingBuilt = function(self,builder,layer)
-        TAirStagingPlatformUnit.OnStopBeingBuilt(self,builder,layer)
-        self:ForkThread(self.RadarThread)
-    end,
 }
 
 TypeClass = UES0102

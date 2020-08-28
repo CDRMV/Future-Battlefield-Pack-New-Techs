@@ -21,74 +21,70 @@ UEL0106c = Class(TWalkingLandUnit) {
         },
     },
 
-    OnStartBuild = function(self, unitBeingBuilt, order )
-        TWalkingLandUnit.OnStartBuild(self,unitBeingBuilt, order)
-        #Fix up info on the unit id from the blueprint and see if it matches the 'UpgradeTo' field in the BP.
-        local unitid = self:GetBlueprint().General.UpgradesTo
-        self.UnitBeingBuilt = unitBeingBuilt
-        if unitBeingBuilt:GetUnitId() == unitid and order == 'Upgrade' then
-            ChangeState(self, self.UpgradingState)
-        end
+    OnCreate = function(self, builder, layer)
+        TWalkingLandUnit. OnCreate(self,builder,layer)
+        self.MotionStatus = nil
+    end,     
+        
+    OnScriptBitSet = function(self, bit)
+        TWalkingLandUnit.OnScriptBitSet(self, bit)
+        if bit == 1 then    	    
+    	    self:ForkThread(self.SpawnFlyingBot)    	    
+    	end
     end,
     
-    IdleState = State {
-        Main = function(self)
-        end,
-    },
-
-    UpgradingState = State {
-        Main = function(self)
-            self:StopRocking()
-            local bp = self:GetBlueprint().Display
-            self:DestroyTarmac()
-            self:PlayUnitSound('UpgradeStart')
-            self:DisableDefaultToggleCaps()
-            if bp.AnimationUpgrade then
-                local unitBuilding = self.UnitBeingBuilt
-                self.AnimatorUpgradeManip = CreateAnimator(self)
-                self.Trash:Add(self.AnimatorUpgradeManip)
-                local fractionOfComplete = 0
-                self:StartUpgradeEffects(unitBuilding)
-                self.AnimatorUpgradeManip:PlayAnim(bp.AnimationUpgrade, false):SetRate(0)
-
-                while fractionOfComplete < 1 and not self:IsDead() do
-                    fractionOfComplete = unitBuilding:GetFractionComplete()
-                    self.AnimatorUpgradeManip:SetAnimationFraction(fractionOfComplete)
-                    WaitTicks(1)
-                end
-                if not self:IsDead() then
-                    self.AnimatorUpgradeManip:SetRate(1)
-                end
-            end
-        end,
-
-        OnStopBuild = function(self, unitBuilding)
-            TWalkingLandUnit.OnStopBuild(self, unitBuilding)
-            self:EnableDefaultToggleCaps()
-            
-            if unitBuilding:GetFractionComplete() == 1 then
-                NotifyUpgrade(self, unitBuilding)
-                self:PlayUnitSound('UpgradeEnd')
-                self:Destroy()
-            end
-        end,
-
-        OnFailedToBuild = function(self)
-            TWalkingLandUnit.OnFailedToBuild(self)
-            self:EnableDefaultToggleCaps()
-            
-            if self.AnimatorUpgradeManip then self.AnimatorUpgradeManip:Destroy() end
-            
-            self:PlayUnitSound('UpgradeFailed')
-            self:PlayActiveAnimation()
-            ChangeState(self, self.IdleState)
-        end,
-        
-    },
+    ReceiveKills = function(self, unitKills)
+        if not self:IsDead() then
+            self.AddKills(self, unitKills) 
+        end   
+    end,  
     
-    PlayActiveAnimation = function(self)
-        
-    end,
+    OnMotionHorzEventChange = function(self, new, old) 
+        TWalkingLandUnit.OnMotionHorzEventChange(self, new, old)     
+        if not self:IsDead() and new != old then
+            self.MotionStatus = new
+        end                
+    end,      
+    
+    SpawnFlyingBot = function(self)
+       if not self:IsDead() then  
+                
+           ### Disables user control and weapons 
+           self:SetUnSelectable(false) 
+           self:SetWeaponEnabledByLabel('ArmCannonTurret', false)
+           
+           ### Removes the toggle after activation 
+           self:RemoveToggleCap('RULEUTC_WeaponToggle')                                 
+           
+           ### Removes all commands
+           IssueClearCommands({self}) 
+           
+           ### Forces the land bot to stop
+           IssueStop({self})
+           
+           ### Waits for the bot to come to a complete stop before transforming
+           while not self:IsDead() and self.MotionStatus != 'Stopped' and self.MotionStatus != nil  do          
+               WaitSeconds(0.1)
+           end                    
+                                
+           ### Spawns the flying bot                  
+           local myOrientation = self:GetOrientation()
+           local location = self:GetPosition()
+           local health = self:GetHealth()
+           local unitKills = self:GetStat('KILLS', 0).Value        
+           local flyingBot = CreateUnit('UEL0106d', self:GetArmy(), location[1], location[2], location[3], myOrientation[1], myOrientation[2], myOrientation[3], myOrientation[4], 'Air')
+           
+           ### Update Stats and veterancy
+           if unitKills > 0 then
+               flyingBot.ReceiveKills(flyingBot, unitKills) 
+           end  
+           flyingBot:SetHealth(self,health)                
+                    
+           ### Remove the old unit
+           flyingBot = nil
+           self:Destroy()
+       end
+   end,  
 }
 TypeClass = UEL0106c
 

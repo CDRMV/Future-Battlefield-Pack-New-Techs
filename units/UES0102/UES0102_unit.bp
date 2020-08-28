@@ -63,11 +63,9 @@ UnitBlueprint {
 		'AIRSTAGINGPLATFORM',
         'ANTIAIR',
         'INTELLIGENCE',
-        'RADAR',
         'VISIBLETORECON',
         'RECLAIMABLE',
         'OVERLAYANTIAIR',
-        'OVERLAYRADAR',
     },
     CollisionOffsetY = -0.4,
     Defense = {
@@ -84,7 +82,6 @@ UnitBlueprint {
     Display = {
         Abilities = {
             '<LOC ability_aa>Anti-Air',
-            '<LOC ability_radar>Radar',
 			'<LOC ability_airstaging>Air Staging',
         },
         AnimationDeath = {
@@ -199,7 +196,6 @@ UnitBlueprint {
         UnitWeight = 1,
     },
     Intel = {
-        RadarRadius = 85,
         VisionRadius = 32,
         WaterVisionRadius = 16,
     },
@@ -244,8 +240,8 @@ UnitBlueprint {
     StrategicIconName = 'icon_ship1_air',
     StrategicIconSortPriority = 165,
 	Transport = {
-        Class2AttachSize = 2,
-        Class3AttachSize = 4,
+        Class2AttachSize = 0,
+        Class3AttachSize = 0,
         DockingSlots = 4,
         RepairRate = 0.1,
         StorageSlots = 0,

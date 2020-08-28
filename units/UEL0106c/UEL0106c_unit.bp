@@ -43,15 +43,14 @@ UnitBlueprint {
         'BUILTBYTIER2FACTORY',
         'BUILTBYTIER3FACTORY',
         'UEF',
+        'MOBILE',
         'LAND',
-		'STRUCTURE',
-		'MOBILE',
         'TECH1',
         'DIRECTFIRE',
         'VISIBLETORECON',
         'RECLAIMABLE',
+        'BOT',
         'OVERLAYDIRECTFIRE',
-		'SHOWQUEUE',
     },
     Defense = {
         AirThreatLevel = 0,
@@ -65,10 +64,9 @@ UnitBlueprint {
     },
     Description = 'Light Jetpack Ambush Bot',
     Display = {
-		Abilities = {
-            'For activate the Jetpack use the upgrade in the construction bar',
-        },
-        AnimationUpgrade = '/units/UEL0106/UEL0106_Afold.sca',
+        Abilities = {
+            'Jetpack',
+        }, 
         AnimationDeath = {
             {
                 Animation = '/units/uel0106/uel0106_Adeath01.sca',
@@ -128,17 +126,14 @@ UnitBlueprint {
         BuildCostMass = 35,
 		BuildRate = 20,
         BuildTime = 140,
-		BuildableCategory = {
-            'uel0106d',
-        },
 		MaintenanceConsumptionPerSecondEnergy = 20,
         TeleportEnergyMod = 0.15,
         TeleportMassMod = 1,
         TeleportTimeMod = 0.01,
     },
     General = {
-        Category = 'Utility',
-        Classification = 'RULEUC_CounterMeasure',
+        Category = 'Direct Fire',
+        Classification = 'RULEUC_MilitaryVehicle',
         CommandCaps = {
             RULEUCC_Attack = true,
             RULEUCC_CallTransport = true,
@@ -153,13 +148,20 @@ UnitBlueprint {
             RULEUCC_Stop = true,
             RULEUCC_Transport = false,
         },
+		ToggleCaps = {
+            RULEUTC_WeaponToggle = true,
+        },
+        OrderOverrides = {
+            RULEUTC_WeaponToggle = { 
+                bitmapId = 'deploy',       
+                helpText = 'Activate Jetpack',
+            },         
+        }, 
         FactionName = 'UEF',
         Icon = 'land',
         TechLevel = 'RULEUTL_Basic',
         UnitName = 'Jet Marine Model-C1',
         UnitWeight = 1,
-		UpgradesTo = 'uel0106d',
-		UpgradesFrom = 'uel0106d',
     },
     Intel = {
         VisionRadius = 18,

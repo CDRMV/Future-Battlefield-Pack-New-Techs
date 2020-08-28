@@ -66,8 +66,8 @@ UnitBlueprint {
         'BUILTBYTIER2FACTORY',
         'BUILTBYTIER3FACTORY',
         'UEF',
-		'STRUCTURE',
         'AIR',
+		'GUNSHIP',
         'TECH1',
         'DIRECTFIRE',
         'VISIBLETORECON',
@@ -88,9 +88,8 @@ UnitBlueprint {
     Description = '<LOC uel0106_desc>Light Assault Bot',
     Display = {
 	    Abilities = {
-            'For deactivate the Jetpack use the upgrade in the construction bar',
+            'Jetpack',
         },
-        AnimationUpgrade = '/units/UEL0106/UEL0106_Afold.sca',
 		LayerChangeEffects = {
             AirLand = {
                 Effects = {
@@ -119,12 +118,14 @@ UnitBlueprint {
             IconFadeInZoom = 130,
             LODs = {
                 {
-					AlbedoName = '/mods/Future Battlefield Pack/units/uel0106c/uel0106c_albedo.dds',
-					LODCutoff = 215,
-					MeshName = '/mods/Future Battlefield Pack/units/uel0106c/uel0106c_lod0.scm',
-					NormalsName = '/mods/Future Battlefield Pack/units/uel0106c/uel0106c_normalsTS.dds',
+                    LODCutoff = 100,
                     ShaderName = 'Unit',
-					SpecularName = '/mods/Future Battlefield Pack/units/uel0106c/uel0106c_specteam.dds',
+                },
+                {
+                    AlbedoName = 'uel0106d_albedo.dds',
+                    LODCutoff = 215,
+                    ShaderName = 'Unit',
+                    SpecularName = 'uel0106d_specteam.dds',
                 },
             },
         },
@@ -147,17 +148,14 @@ UnitBlueprint {
         BuildCostMass = 35,
         BuildTime = 140,
 		BuildRate = 20,
-		BuildableCategory = {
-            'uel0106c',
-        },
 		MaintenanceConsumptionPerSecondEnergy = 20,
         TeleportEnergyMod = 0.15,
         TeleportMassMod = 1,
         TeleportTimeMod = 0.01,
     },
     General = {
-        Category = 'Utility',
-        Classification = 'RULEUC_CounterMeasure',
+        Category = 'Gunship',
+        Classification = 'RULEUC_MilitaryAircraft',
         CommandCaps = {
             RULEUCC_Attack = true,
             RULEUCC_CallTransport = false,
@@ -173,13 +171,20 @@ UnitBlueprint {
             RULEUCC_Stop = true,
             RULEUCC_Transport = false,
         },
+		ToggleCaps = {
+            RULEUTC_WeaponToggle = true,
+        }, 
+        OrderOverrides = {
+            RULEUTC_WeaponToggle = { 
+                bitmapId = 'deploy',       
+                helpText = 'Deactivate Jetpack',
+            },         
+        },
         FactionName = 'UEF',
         Icon = 'air',
         TechLevel = 'RULEUTL_Basic',
         UnitName = 'Jet Marine Model-C1',
         UnitWeight = 1,
-		UpgradesTo = 'uel0106c',
-		UpgradesFrom = 'uel0106c',
     },
     Intel = {
         VisionRadius = 18,
