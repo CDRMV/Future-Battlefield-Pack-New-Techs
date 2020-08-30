@@ -51,11 +51,12 @@ UnitBlueprint {
     Categories = {
         'PRODUCTFA',
         'SELECTABLE',
+		'BUILTBYTIER2FACTORY',
         'BUILTBYTIER3FACTORY',
         'UEF',
         'MOBILE',
         'NAVAL',
-        'TECH3',
+        'TECH2',
 		'FACTORY',
 		'AIRSTAGINGPLATFORM',
         'REPAIR',
@@ -75,11 +76,11 @@ UnitBlueprint {
     CollisionOffsetY = -0.375,
     CollisionOffsetZ = 0,
     Defense = {
-        AirThreatLevel = 20,
+        AirThreatLevel = 10,
         ArmorType = 'Normal',
         EconomyThreatLevel = 0,
-        Health = 20000,
-        MaxHealth = 20000,
+        Health = 10000,
+        MaxHealth = 10000,
         RegenRate = 0,
         SubThreatLevel = 0,
         SurfaceThreatLevel = 0,
@@ -91,8 +92,6 @@ UnitBlueprint {
             '<LOC ability_carrier>Carrier',
             '<LOC ability_factory>Factory',
             '<LOC ability_radar>Radar',
-            '<LOC ability_sonar>Sonar',
-            '<LOC ability_tacmissiledef>Tactical Missile Defense',
         },
         AnimationDeath = {
             {
@@ -175,14 +174,12 @@ UnitBlueprint {
         UniformScale = 0.085,
     },
     Economy = {
-        BuildCostEnergy = 36000,
-        BuildCostMass = 3600,
-        BuildRate = 150,
-        BuildTime = 10800,
+        BuildCostEnergy = 26000,
+        BuildCostMass = 2600,
+        BuildRate = 100,
+        BuildTime = 8000,
         BuildableCategory = {
-            'BUILTBYTIER3FACTORY UEF MOBILE AIR ANTINAVY',
-            'BUILTBYTIER3FACTORY UEF MOBILE AIR INTELLIGENCE',
-            'BUILTBYTIER3FACTORY UEF MOBILE AIR ANTIAIR',
+            'BUILTBYTIER2FACTORY UEF MOBILE AIR',
         },
     },
     Footprint = {
@@ -216,7 +213,7 @@ UnitBlueprint {
             },
         },
         TechLevel = 'RULEUTL_Secret',
-        UnitName = 'Clarke Class',
+        UnitName = 'Matar Class',
         UnitWeight = 1,
     },
     Intel = {
@@ -272,7 +269,7 @@ UnitBlueprint {
     StrategicIconSortPriority = 145,
 	Transport = {
         ClassGenericUpTo = 3,
-        StorageSlots = 50,
+        StorageSlots = 20,
         TransportClass = 10,
     },
     Veteran = {
