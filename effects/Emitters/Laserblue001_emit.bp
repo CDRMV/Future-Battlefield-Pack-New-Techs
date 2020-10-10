@@ -5,8 +5,8 @@ TrailEmitterBlueprint {
     Size = 0.02,
     SortOrder = 0,
     BlendMode = 3,
-    TextureRepeatRate = 8000,
-    LODCutoff = 0,
-	RepeatTexture = [[/mods/Future Battlefield Pack New Techs/textures/particles/ramp_blue_014 Kopie.dds]],
-	RampTexture = [[/mods/Future Battlefield Pack New Techs/textures/particles/ramp_blue_014 Kopie.dds]],
+    TextureRepeatRate = 1,
+    LODCutoff = 500,
+	RepeatTexture = [[/textures/particles/trail_white_02.dds]],
+	RampTexture = [[/mods/Future Battlefield Pack New Techs/textures/particles/laser_blue.dds]],
 }

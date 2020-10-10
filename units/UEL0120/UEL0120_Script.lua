@@ -8,16 +8,33 @@
 #**  Copyright © 2005 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
 
-local TConstructionUnit = import('/lua/terranunits.lua').TConstructionUnit
-local TDFLightMaserCannonWeapon = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua').TDFLightMaserCannonWeapon
+local TLandUnit = import('/lua/terranunits.lua').TLandUnit
+local FBPNTWeaponFile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua')
+local TLightMaserBeamWeapon = FBPNTWeaponFile.TLightMaserBeamWeapon
 
 
-UEL0120 = Class(TConstructionUnit) {
+UEL0120 = Class(TLandUnit) {
     
     Weapons = {
-        MainGun = Class(TDFLightMaserCannonWeapon) {
+        LightMaserWeapon = Class(TLightMaserBeamWeapon) {
         },
-    },
+		
+		OnKilled = function(self)
+            local wep1 = self:GetWeaponByLabel('LightMaserWeapon')
+            local bp1 = wep1:GetBlueprint()
+            if bp1.Audio.BeamStop then
+                wep1:PlaySound(bp1.Audio.BeamStop)
+            end
+            if bp1.Audio.BeamLoop and wep1.Beams[1].Beam then
+                wep1.Beams[1].Beam:SetAmbientSound(nil, nil)
+            end
+            for k, v in wep1.Beams do
+                v.Beam:Disable()
+            end     
+                  
+            TLandUnit.OnKilled(self)
+        end,   
+    },  
 
 }
 

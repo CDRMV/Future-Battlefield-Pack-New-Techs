@@ -1,5 +1,5 @@
 ProjectileBlueprint {
-    Audio = {
+	Audio = {
         Impact = Sound {
             Bank = 'Explosions',
             Cue = 'Explosion_Bomb',
@@ -22,7 +22,7 @@ ProjectileBlueprint {
         'DIRECTFIRE',
     },
     Display = {
-		ImpactEffects = {
+        ImpactEffects = {
             Type = 'Medium02',
         },
         StrategicIconSize = 1,
@@ -30,7 +30,7 @@ ProjectileBlueprint {
     General = {
         Category = 'Direct Fire',
         EntityCategory = {
-            'AEON',
+            'UEF',
             'PROJECTILE',
             'DIRECTFIRE',
         },
@@ -42,9 +42,8 @@ ProjectileBlueprint {
     },
     Physics = {
         DestroyOnWater = true,
-        InitialSpeed = 28,
-        TurnRate = 360,
-        VelocityAlign = true,
+        InitialSpeed = 22,
+        RotationalVelocity = 600,
         UseGravity = false,
     },
 }

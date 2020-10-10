@@ -9,13 +9,18 @@
 #****************************************************************************
 
 local TLandUnit = import('/lua/terranunits.lua').TLandUnit
-local TDFHeavyMaserCannonWeapon2 = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua').TDFHeavyMaserCannonWeapon2
+local WeaponsFile = import('/lua/terranweapons.lua')
+local FBPNTWeaponFile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua')
+local TDFHeavyMaserCannonWeapon = FBPNTWeaponFile.TDFHeavyMaserCannonWeapon
+local TIFFragLauncherWeapon = WeaponsFile.TIFFragLauncherWeapon
 
 UEL0310 = Class(TLandUnit) {
     Weapons = {
-        MaserWeapon = Class(TDFHeavyMaserCannonWeapon2) {
+        HeavyMaserWeapon = Class(TDFHeavyMaserCannonWeapon) {
         },
-    },
+		
+		Grenade = Class(TIFFragLauncherWeapon) {},  
+    },  
 
 }
 

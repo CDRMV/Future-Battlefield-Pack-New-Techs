@@ -50,8 +50,7 @@ Flamethrower02 = Class(EmitterProjectile) {
 BlueLightLaserProjectile = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue001_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue001_emit.bp',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue001_emit',
 	},
 	PolyTrailOffset = {0,0},
 
@@ -68,8 +67,7 @@ BlueLightLaserProjectile = Class(MultiPolyTrailProjectile) {
 BlueLaserProjectile01 = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue01_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue01_emit.bp',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue01_emit',
 	},
 	PolyTrailOffset = {0,0},
 
@@ -86,8 +84,7 @@ BlueLaserProjectile01 = Class(MultiPolyTrailProjectile) {
 BlueLaserProjectile02 = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue01_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/MobileLaserblue01_emit.bp',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue02_emit',
 	},
 	PolyTrailOffset = {0,0},
 
@@ -119,68 +116,27 @@ BlueLaserProjectileLong = Class(MultiPolyTrailProjectile) {
     FxImpactUnderWater = {},
 }
 
-#------------------------------------------------------------------------
-#  TERRAN Maser CANNON PROJECTILES
-#------------------------------------------------------------------------
-TLightMaserCannonProjectile = Class(MultiPolyTrailProjectile) {
-    PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_light_cannon_polytrail_01_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_light_cannon_polytrail_01_emit.bp',
-	},
-	PolyTrailOffset = {0,0},
-    FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
-}
-
-TMediumMaserCannonProjectile = Class(MultiPolyTrailProjectile) {
-    PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_medium_cannon_polytrail_01_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_medium_cannon_polytrail_01_emit.bp',
-	},
-	PolyTrailOffset = {0,0},
-    FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
-}
-
-TMediumMaserCannonProjectile2 = Class(MultiPolyTrailProjectile) {
-    PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_medium_cannon_polytrail_02_emit.bp',
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_medium_cannon_polytrail_02_emit.bp',
-	},
-	PolyTrailOffset = {0,0},
-    FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
-}
-
-THeavyMaserCannonProjectile2 = Class(MultiPolyTrailProjectile) {
-    PolyTrails = {
-		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_heavy_cannon_polytrail_01_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/effects/Emitters/maser_heavy_cannon_polytrail_01_emit.bp',
-	},
-    PolyTrailOffset = {0,0}, 
-
-    FxTrails = 
-	{
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_01_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_02_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_03_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_04_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_01_emit.bp',
-		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_02_emit.bp',
-	},
-	FxTrailScale = 0.7,
-    FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
-    FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
-    FxImpactUnderWater = {},
-    FxLandHitScale = 0.7,
-    FxPropHitScale = 0.7,
-    FxUnitHitScale = 0.7,
-    FxNoneHitScale = 0.7,
+TFreezerGrenade = Class(MultiPolyTrailProjectile) {
+    FxTrails= EffectTemplate.THeavyFragmentationGrenadeFxTrails,
+    PolyTrails = EffectTemplate.TGaussCannonPolyTrail,
+    PolyTrailOffset = {0,0},
+    FxImpactUnit = EffectTemplate.TGaussCannonHitUnit01,
+    FxImpactProp = EffectTemplate.TGaussCannonHitUnit01,
+	FxImpactWater = EffectTemplate.WaterSplash01,
+    FxImpactLand = EffectTemplate.CArtilleryHit01,
     FxTrailOffset = 0,
+    FxImpactUnderWater = {},
+}
+
+THellfireMissile = Class(SingleBeamProjectile) {
+    BeamName = '/effects/emitters/missile_munition_exhaust_beam_01_emit.bp',
+    FxImpactUnit = EffectTemplate.TMissileHit01,
+    FxImpactLand = EffectTemplate.TMissileHit01,
+    FxImpactProp = EffectTemplate.TMissileHit01,
+	FxImpactWater = EffectTemplate.WaterSplash01,
+    FxTrails = EffectTemplate.TMissileExhaust03,
+    FxTrailOffset = -1,
+    FxImpactUnderWater = {},
 }
 
 THeavyMaserCannonProjectile = Class(EmitterProjectile) {
@@ -193,11 +149,39 @@ THeavyMaserCannonProjectile = Class(EmitterProjectile) {
 		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_01_emit.bp',
 		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_02_emit.bp',
 	},
-   	FxTrailScale = 0.7,
+   	FxTrailScale = 0.5,
     FxImpactTrajectoryAligned = false,
     FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
     FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
     FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
     FxImpactUnderWater = {},
+    FxLandHitScale = 0.7,
+    FxPropHitScale = 0.7,
+    FxUnitHitScale = 0.7,
+    FxNoneHitScale = 0.7,
+    FxTrailOffset = 0,
+}
+
+TExperimentalMaserCannonProjectile = Class(EmitterProjectile) {
+    FxTrails = 
+	{
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_01_emit.bp',
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_02_emit.bp',
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_03_emit.bp',
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrail_04_emit.bp',
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_01_emit.bp',
+		'/mods/Future Battlefield Pack New Techs/Effects/Emitters/maser_heavy_cannon_fxtrails_02_emit.bp',
+	},
+   	FxTrailScale = 0.5,
+    FxImpactTrajectoryAligned = false,
+    FxImpactUnit = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
+    FxImpactProp = EffectTemplate.TPlasmaCannonHeavyHitUnit01,
+    FxImpactLand = EffectTemplate.TPlasmaCannonHeavyHit01,
+    FxImpactUnderWater = {},
+    FxLandHitScale = 0.7,
+    FxPropHitScale = 0.7,
+    FxUnitHitScale = 0.7,
+    FxNoneHitScale = 0.7,
+    FxTrailOffset = 0,
 }
 
