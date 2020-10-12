@@ -22,10 +22,46 @@ local MaserCollisionBeam = FBPNTCollisionBeams.MaserCollisionBeam
 local HyperMaserCollisionBeam = FBPNTCollisionBeams.HyperMaserCollisionBeam
 local DualMaserCollisionBeam = FBPNTCollisionBeams.DualMaserCollisionBeam
 local LightHyperMaserCollisionBeam = FBPNTCollisionBeams.LightHyperMaserCollisionBeam
+local TLightningCollisionBeam = FBPNTCollisionBeams.TLightningCollisionBeam
 
 TMiniBlueBeamWeapon = Class(DefaultBeamWeapon) {
     BeamType = MiniBlueCollisionBeam,
     FxMuzzleFlash = {'/mods/Future Battlefield Pack New Techs/effects/emitters/mini_blue_beam_muzzle_01_emit.bp'},
+}
+
+TLightningWeapon01 = Class(DefaultBeamWeapon) {
+    BeamType = TLightningCollisionBeam,
+    FxMuzzleFlash = {'/effects/emitters/cannon_muzzle_flash_01_emit.bp',},
+}
+
+TDFLaserArtWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_02_emit.bp' },
+}
+
+TDFLaserLightWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_02_emit.bp' },
+    PolyTrail = {'/effects/emitters/aeon_laser_trail_01_emit.bp'},
+}
+
+TDFLaserTurboLightWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_02_emit.bp' },
+}
+
+ADFQuadLaserLightWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_04_emit.bp' },
+}
+
+ADFLaserLightWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_04_emit.bp' },
+}
+
+ADFSonicPulsarWeapon = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/flash_02_emit.bp' },
+    FxMuzzleFlashScale = 0.5,
+}
+
+ADFLaserHeavyWeapon = Class(DefaultProjectileWeapon) {
+    FxChargeMuzzleFlash = {},
 }
 
 TAtomicRayBeamWeapon = Class(DefaultBeamWeapon) {

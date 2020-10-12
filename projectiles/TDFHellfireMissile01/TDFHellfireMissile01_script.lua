@@ -7,7 +7,7 @@
 #**
 #**  Copyright © 2007 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
-local THellfireMissile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTProjectiles.lua').THellfireMissile
+local THellfireMissile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTprojectiles.lua').THellfireMissile
 local EffectTemplate = import('/lua/EffectTemplates.lua')
 
 TDFHellfireMissile01 = Class(THellfireMissile) {

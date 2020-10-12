@@ -7,7 +7,7 @@
 #**
 #**  Copyright © 2007 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
-local TFreezerGrenade = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTProjectiles.lua').TFreezerGrenade
+local TFreezerGrenade = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTprojectiles.lua').TFreezerGrenade
 local EffectTemplate = import('/lua/EffectTemplates.lua')
 
 TDFFreezerGrenade01 = Class(TFreezerGrenade) {

@@ -27,6 +27,15 @@ SCCollisionBeam = Class(CollisionBeam) {
 }
 
 #----------------------------------
+#   TLightningCollisionBeam
+#----------------------------------
+TLightningCollisionBeam = Class(SCCollisionBeam) {
+    FxBeam = {'/mods/Future Battlefield Pack New Techs/effects/emitters/Lightning_beam_01_emit.bp'},
+    FxBeamEndPoint = {'/effects/emitters/cannon_muzzle_flash_01_emit.bp',
+                       '/effects/emitters/sparks_07_emit.bp',},
+}
+
+#----------------------------------
 #   UEF EXPERIMENTAL LIZARD BOT ATOMIC RAY COLLISION BEAM
 #----------------------------------
 AtomicRayCollisionBeam = Class(SCCollisionBeam) {
