@@ -8,10 +8,10 @@
 #**  Copyright © 2005 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
 local THoverLandUnit = import('/lua/terranunits.lua').THoverLandUnit
-local WeaponFile = import('/lua/terranweapons.lua')
-local TDFLaserLightWeapon = WeaponFile.TDFLaserLightWeapon
-local TDFLaserArtWeapon = WeaponFile.TDFLaserArtWeapon
-local TSAMLauncher = WeaponFile.TSAMLauncher
+local FBPNTWeaponFile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua')
+local TDFLaserLightWeapon = FBPNTWeaponFile.TDFLaserLightWeapon
+local TDFLaserArtWeapon = FBPNTWeaponFile.TDFLaserArtWeapon
+local TSAMLauncher = import('/lua/terranweapons.lua').TSAMLauncher
 
 UEL0217 = Class(THoverLandUnit) {
     Weapons = {

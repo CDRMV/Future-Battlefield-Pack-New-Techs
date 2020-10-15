@@ -9,7 +9,8 @@
 #****************************************************************************
 
 local TWalkingLandUnit = import('/lua/terranunits.lua').TWalkingLandUnit
-local TDFLaserLightWeapon = import('/lua/terranweapons.lua').TDFLaserLightWeapon
+local FBPNTWeaponFile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua')
+local TDFLaserLightWeapon = FBPNTWeaponFile.TDFLaserLightWeapon
 
 UEL0112 = Class(TWalkingLandUnit) {
     Weapons = {

@@ -9,16 +9,16 @@
 #****************************************************************************
 
 local TWalkingLandUnit = import('/lua/terranunits.lua').TWalkingLandUnit
-local FBPNTWeaponFile = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTweapons.lua')
-local TDFLaserLightWeapon = FBPNTWeaponFile.TDFLaserLightWeapon
-local TDFLaserArtWeapon = FBPNTWeaponFile.TDFLaserArtWeapon
+local TDFGaussCannonWeapon = import('/lua/terranweapons.lua').TDFGaussCannonWeapon
+local TDFMachineGunWeapon = import('/lua/terranweapons.lua').TDFMachineGunWeapon
 
-UEL0207 = Class(TWalkingLandUnit) {
+UEL0131 = Class(TWalkingLandUnit) {
+
     Weapons = {
-        GroundGun = Class(TDFLaserLightWeapon) {},
-        GroundGun2 = Class(TDFLaserArtWeapon) {},
+        MainGun = Class(TDFGaussCannonWeapon) {},
+		MG = Class(TDFMachineGunWeapon) {},
     },
     
 }
 
-TypeClass = UEL0207
+TypeClass = UEL0131

@@ -44,7 +44,7 @@ Flamethrower02 = Class(EmitterProjectile) {
 BlueLightLaserProjectile = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue001_emit',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue001_emit.bp',
 	},
 	PolyTrailOffset = {0,0},
 
@@ -61,7 +61,7 @@ BlueLightLaserProjectile = Class(MultiPolyTrailProjectile) {
 BlueLaserProjectile01 = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue01_emit',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue01_emit.bp',
 	},
 	PolyTrailOffset = {0,0},
 
@@ -78,7 +78,7 @@ BlueLaserProjectile01 = Class(MultiPolyTrailProjectile) {
 BlueLaserProjectile02 = Class(MultiPolyTrailProjectile) {
 
     PolyTrails = {
-    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue02_emit',
+    		'/mods/Future Battlefield Pack New Techs/effects/Emitters/Laserblue02_emit.bp',
 	},
 	PolyTrailOffset = {0,0},
 
