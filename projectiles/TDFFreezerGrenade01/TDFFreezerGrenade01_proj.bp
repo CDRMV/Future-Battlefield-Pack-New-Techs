@@ -22,10 +22,6 @@ ProjectileBlueprint {
         'DIRECTFIRE',
     },
     Display = {
-        ImpactEffects = {
-            Scale = 0.4,
-            Type = 'Medium02',
-        },
         Mesh = {
             LODs = {
                 {

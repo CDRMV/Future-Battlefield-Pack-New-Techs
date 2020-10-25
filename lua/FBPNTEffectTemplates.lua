@@ -4,10 +4,15 @@
 -- Summary  :  Generic templates for commonly used effects
 -- Copyright © 2006 Gas Powered Games, Inc.  All rights reserved.
 ----------------------------------------------------------------------
-
+TableCat = import('/lua/utilities.lua').TableCat
 EmtBpPath = '/effects/emitters/'
 EmtBpPathAlt = '/mods/Future Battlefield Pack New Techs/effects/emitters/'
 EmitterTempEmtBpPath = '/effects/emitters/temp/'
+
+FireCloudSml04 = {
+    EmtBpPathAlt .. 'Blue_Laser_cloud_01_emit.bp',
+    EmtBpPathAlt .. 'Blue_Laser_cloud_02_emit.bp',
+}
 
 FlameThrowerHitLand01 = {
     EmtBpPathAlt .. 'flamerthrower_flash_emit.bp',
@@ -50,8 +55,8 @@ TMaserCannonLightHit03 = {
 TMaserCannonLightHit04 = {
     EmtBpPath .. 'heavy_plasma_cannon_hitunit_05_emit.bp',
 }
-TMaserCannonLightHit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit03 )
-TMaserCannonLightHitUnit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit04, UnitHitShrapnel01 )
+TMaserCannonLightHit01 = TableCat( TMaserCannonLightHit02, TMaserCannonLightHit03 )
+TMaserCannonLightHitUnit01 = TableCat( TMaserCannonLightHit02, TMaserCannonLightHit04 )
 
 TMaserCannonLightMunition = {
     EmtBpPathAlt .. 'maser_light_cannon_trail_02_emit.bp',
@@ -85,8 +90,8 @@ TMaserCannonMediumHit03 = {
 TMaserCannonMediumHit04 = {
     EmtBpPath .. 'heavy_plasma_cannon_hitunit_05_emit.bp',
 }
-TMaserCannonMediumHit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit03 )
-TMaserCannonMediumHitUnit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit04, UnitHitShrapnel01 )
+TMaserCannonMediumHit01 = TableCat( TMaserCannonMediumHit02, TMaserCannonMediumHit03 )
+TMaserCannonMediumHitUnit01 = TableCat( TMaserCannonMediumHit02, TMaserCannonMediumHit04 )
 
 TMaserCannonMediumMunition = {
     EmtBpPathAlt .. 'maser_medium_cannon_trail_02_emit.bp',
@@ -124,8 +129,8 @@ TMaserCannonHeavyHit03 = {
 TMaserCannonHeavyHit04 = {
     EmtBpPath .. 'heavy_plasma_cannon_hitunit_05_emit.bp',
 }
-TMaserCannonHeavyHit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit03 )
-TMaserCannonHeavyHitUnit01 = TableCat( TPlasmaCannonHeavyHit02, TPlasmaCannonHeavyHit04, UnitHitShrapnel01 )
+TMaserCannonHeavyHit01 = TableCat( TMaserCannonHeavyHit02, TMaserCannonHeavyHit03 )
+TMaserCannonHeavyHitUnit01 = TableCat( TMaserCannonHeavyHit02, TMaserCannonHeavyHit04 )
 
 TMaserCannonHeavyFxTrails = {
     EmtBpPathAlt .. 'maser_heavy_cannon_fxtrail_02_emit.bp',

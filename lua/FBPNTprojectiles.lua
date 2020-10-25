@@ -10,7 +10,21 @@ local DefaultProjectileFile = import('/lua/sim/defaultprojectiles.lua')
 local EmitterProjectile = DefaultProjectileFile.EmitterProjectile
 local SingleBeamProjectile = DefaultProjectileFile.SingleBeamProjectile
 local MultiPolyTrailProjectile = DefaultProjectileFile.MultiPolyTrailProjectile
+local SinglePolyTrailProjectile = DefaultProjectileFile.SinglePolyTrailProjectile
 local EffectTemplate = import('/lua/EffectTemplates.lua')
+local ModEffectTemplate = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTEffectTemplates.lua')
+
+TCobraMissileProjectile = Class(SingleBeamProjectile) {
+    BeamName = '/effects/emitters/missile_exhaust_fire_beam_02_emit.bp',
+    FxTrails = EffectTemplate.TMissileExhaust03,
+
+    FxImpactUnit = EffectTemplate.TMissileHit01,
+    FxImpactProp = EffectTemplate.TMissileHit01,
+    FxImpactLand = EffectTemplate.TMissileHit01,
+    FxImpactProjectile = EffectTemplate.TMissileHit01,
+    FxProjectileHitScale = 5,
+    FxImpactUnderWater = {},
+}
 
 Flamethrower01 = Class(EmitterProjectile) {
     FxTrails = {'/mods/Future Battlefield Pack New Techs/Effects/Emitters/FlamerthrowerTrailFX.bp',},
@@ -52,9 +66,9 @@ BlueLightLaserProjectile = Class(MultiPolyTrailProjectile) {
     FxImpactUnit = EffectTemplate.TRiotGunHitUnit01,
     FxImpactProp = EffectTemplate.TRiotGunHitUnit01,
     FxImpactLand = EffectTemplate.TRiotGunHit01,
-    FxImpactAirUnit = EffectTemplate.FireCloudSml04,
-    FxImpactNone = EffectTemplate.FireCloudSml04, 
-    FxImpactWater = EffectTemplate.WaterSplash01,
+    FxImpactAirUnit = ModEffectTemplate.FireCloudSml04,
+    FxImpactNone = ModEffectTemplate.FireCloudSml04, 
+    FxImpactWater = EffectTemplate.DefaultProjectileWaterImpact,
     FxImpactUnderWater = {},
 }
 
@@ -69,9 +83,9 @@ BlueLaserProjectile01 = Class(MultiPolyTrailProjectile) {
     FxImpactUnit = EffectTemplate.TRiotGunHitUnit01,
     FxImpactProp = EffectTemplate.TRiotGunHitUnit01,
     FxImpactLand = EffectTemplate.TRiotGunHit01,
-    FxImpactAirUnit = EffectTemplate.FireCloudSml04,
-    FxImpactNone = EffectTemplate.FireCloudSml04, 
-    FxImpactWater = EffectTemplate.WaterSplash01,
+    FxImpactAirUnit = ModEffectTemplate.FireCloudSml04,
+    FxImpactNone = ModEffectTemplate.FireCloudSml04, 
+    FxImpactWater = EffectTemplate.DefaultProjectileWaterImpact,
     FxImpactUnderWater = {},
 }
 
@@ -86,9 +100,9 @@ BlueLaserProjectile02 = Class(MultiPolyTrailProjectile) {
     FxImpactUnit = EffectTemplate.TRiotGunHitUnit01,
     FxImpactProp = EffectTemplate.TRiotGunHitUnit01,
     FxImpactLand = EffectTemplate.TRiotGunHit01,
-    FxImpactAirUnit = EffectTemplate.FireCloudSml04,
-    FxImpactNone = EffectTemplate.FireCloudSml04, 
-    FxImpactWater = EffectTemplate.WaterSplash01,
+    FxImpactAirUnit = ModEffectTemplate.FireCloudSml04,
+    FxImpactNone = ModEffectTemplate.FireCloudSml04, 
+    FxImpactWater = EffectTemplate.DefaultProjectileWaterImpact,
     FxImpactUnderWater = {},
 }
 
@@ -98,20 +112,22 @@ TFreezerGrenade = Class(MultiPolyTrailProjectile) {
     PolyTrailOffset = {0,0},
     FxImpactUnit = EffectTemplate.TGaussCannonHitUnit01,
     FxImpactProp = EffectTemplate.TGaussCannonHitUnit01,
-	FxImpactWater = EffectTemplate.WaterSplash01,
+	FxImpactWater = EffectTemplate.DefaultProjectileWaterImpact,
     FxImpactLand = EffectTemplate.CArtilleryHit01,
     FxTrailOffset = 0,
     FxImpactUnderWater = {},
 }
 
 THellfireMissile = Class(SingleBeamProjectile) {
-    BeamName = '/effects/emitters/missile_munition_exhaust_beam_01_emit.bp',
-    FxImpactUnit = EffectTemplate.TMissileHit01,
-    FxImpactLand = EffectTemplate.TMissileHit01,
-    FxImpactProp = EffectTemplate.TMissileHit01,
-	FxImpactWater = EffectTemplate.WaterSplash01,
+    BeamName = '/mods/Future Battlefield Pack New Techs/Effects/Emitters/missile_exhaust_fire_beam_07_emit.bp',
     FxTrails = EffectTemplate.TMissileExhaust03,
-    FxTrailOffset = -1,
+
+    FxImpactUnit = EffectTemplate.TMissileHit01,
+    FxImpactProp = EffectTemplate.TMissileHit01,
+    FxImpactLand = EffectTemplate.TMissileHit01,
+	FxImpactWater = EffectTemplate.DefaultProjectileWaterImpact,
+    FxImpactProjectile = EffectTemplate.TMissileHit01,
+    FxProjectileHitScale = 5,
     FxImpactUnderWater = {},
 }
 
@@ -160,4 +176,22 @@ TExperimentalMaserCannonProjectile = Class(EmitterProjectile) {
     FxNoneHitScale = 0.7,
     FxTrailOffset = 0,
 }
+
+TDFCargoProjectile = Class(SinglePolyTrailProjectile) {
+    DestroyOnImpact = false,
+    FxTrails = EffectTemplate.TMissileExhaust02,
+    FxTrailOffset = -1,
+    BeamName = '/effects/emitters/missile_munition_exhaust_beam_01_emit.bp',
+
+    FxImpactUnit = EffectTemplate.TMissileHit01,
+    FxImpactLand = EffectTemplate.TMissileHit01,
+    FxImpactProp = EffectTemplate.TMissileHit01,
+    FxImpactUnderWater = {},
+
+    OnImpact = function(self, targetType, targetEntity)
+        local army = self:GetArmy()
+        SingleBeamProjectile.OnImpact(self, targetType, targetEntity)
+    end,
+}
+
 

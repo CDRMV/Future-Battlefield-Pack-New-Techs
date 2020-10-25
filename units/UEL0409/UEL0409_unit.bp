@@ -249,7 +249,7 @@ UnitBlueprint {
                 helpText = 'toggle_shield_personal',
             },
         },
-        TechLevel = 'RULEUTL_Secret',
+        TechLevel = 'RULEUTL_Experimental',
         ToggleCaps = {
             RULEUTC_ShieldToggle = true,
         },
