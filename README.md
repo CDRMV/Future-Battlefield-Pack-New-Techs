@@ -1,5 +1,5 @@
 # Future-Battlefield-Pack-New-Techs
-'Future Battlefield Pack: New Techs' is a Submod for F.B.P: Legends, which adds several new Units and Features into the Game.
+'Future Battlefield Pack: New Techs' is a Submod of the F.B.P. Modproject, which adds several new Units and Features into the Game.
 
 Important:
 
