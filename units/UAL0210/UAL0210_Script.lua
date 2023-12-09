@@ -10,7 +10,7 @@
 
 local AHoverLandUnit = import('/lua/aeonunits.lua').AHoverLandUnit
 local WeaponsFile = import ('/lua/aeonweapons.lua')
-local ADFLightPhasonLaser = WeaponsFile.ADFLightPhasonLaser
+local ADFLightPhasonLaser = WeaponsFile.ADFPhasonLaser
 
 UAL0210 = Class(AHoverLandUnit) {
     Weapons = {

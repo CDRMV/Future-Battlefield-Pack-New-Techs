@@ -106,6 +106,7 @@ BlueLaserProjectile02 = Class(MultiPolyTrailProjectile) {
     FxImpactUnderWater = {},
 }
 
+
 TFreezerGrenade = Class(MultiPolyTrailProjectile) {
     FxTrails= EffectTemplate.THeavyFragmentationGrenadeFxTrails,
     PolyTrails = EffectTemplate.TGaussCannonPolyTrail,

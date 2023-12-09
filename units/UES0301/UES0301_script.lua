@@ -1,82 +1,42 @@
 #****************************************************************************
 #**
-#**  File     :  /cdimage/units/UES0202/UES0202_script.lua
+#**  File     :  /cdimage/units/UES0103/UES0103_script.lua
 #**  Author(s):  John Comes, David Tomandl, Jessica St. Croix
 #**
-#**  Summary  :  UEF Cruiser Script
+#**  Summary  :  UEF Frigate Script
 #**
 #**  Copyright © 2005 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
-local EffectTemplate = import('/lua/EffectTemplates.lua')
 local TMobileFactoryUnit = import('/lua/terranunits.lua').TMobileFactoryUnit
-local WeaponFile = import('/lua/terranweapons.lua')
-local TAMPhalanxWeapon = WeaponFile.TAMPhalanxWeapon
-local TSAMLauncher = WeaponFile.TSAMLauncher
+local TAALinkedRailgun = import('/lua/terranweapons.lua').TAALinkedRailgun
+local TAAFlakArtilleryCannon = import('/lua/terranweapons.lua').TAAFlakArtilleryCannon
+local TDFGaussCannonWeapon = import('/lua/terranweapons.lua').TDFGaussCannonWeapon
+local Entity = import('/lua/sim/Entity.lua').Entity
 
 UES0301 = Class(TMobileFactoryUnit) {
-    DestructionTicks = 200,
 
     Weapons = {
-		BackTurret02 = Class(TSAMLauncher) {
-            FxMuzzleFlash = EffectTemplate.TAAMissileLaunchNoBackSmoke,
+	    MainGun = Class(TDFGaussCannonWeapon) {
         },
-        PhalanxGun01 = Class(TAMPhalanxWeapon) {
-            PlayFxWeaponUnpackSequence = function(self)
-                if not self.SpinManip then 
-                    self.SpinManip = CreateRotator(self.unit, { 'Front_Turret03_Barrel', 'Back_Turret04_Barrel', }, 'z', nil, 270, 180, 60)
-                    self.SpinManip:SetPrecedence(10)
-                    self.unit.Trash:Add(self.SpinManip)
-                end
-                if self.SpinManip then
-                    self.SpinManip:SetTargetSpeed(270)
-                end
-                TAMPhalanxWeapon.PlayFxWeaponUnpackSequence(self)
-            end,
+        AAGun = Class(TAALinkedRailgun) {
+        },
+		AAHGun = Class(TAAFlakArtilleryCannon) {
+            PlayOnlyOneSoundCue = true,
+        },	
+    },
 
-            PlayFxWeaponPackSequence = function(self)
-                if self.SpinManip then
-                    self.SpinManip:SetTargetSpeed(0)
-                end
-                TAMPhalanxWeapon.PlayFxWeaponPackSequence(self)
-            end,
-        },
-	},
-	
-	BuildAttachBone = 'Buildpoint1',
+	BuildAttachBone = 'Build',
 
     OnStopBeingBuilt = function(self,builder,layer)
-        self:SetWeaponEnabledByLabel('MainGun', true)
         TMobileFactoryUnit.OnStopBeingBuilt(self,builder,layer)
 		self:ForkThread(self.RadarThread)
-        self.Trash:Add(CreateRotator(self, 'Spinner06', 'y', nil, 45, 0, 0))
-        if layer == 'Water' then
-            self:RestoreBuildRestrictions()
-            self:RequestRefreshUI()
-        else
-            self:AddBuildRestriction(categories.ALLUNITS)
-            self:RequestRefreshUI()
-        end
+        self.Trash:Add(CreateRotator(self, 'Spinner02', 'y', nil, 45, 0, 0))
         ChangeState(self, self.IdleState)
     end,
 
     OnFailedToBuild = function(self)
         TMobileFactoryUnit.OnFailedToBuild(self)
         ChangeState(self, self.IdleState)
-    end,
-
-    OnMotionVertEventChange = function( self, new, old )
-        TMobileFactoryUnit.OnMotionVertEventChange(self, new, old)
-        if new == 'Top' then
-            self:RestoreBuildRestrictions()
-            self:RequestRefreshUI()
-            self:SetWeaponEnabledByLabel('FrontTurret02', true)
-            self:PlayUnitSound('Open')
-        elseif new == 'Down' then
-            self:SetWeaponEnabledByLabel('FrontTurret02', false)
-            self:AddBuildRestriction(categories.ALLUNITS)
-            self:RequestRefreshUI()
-            self:PlayUnitSound('Close')
-        end
     end,
 
     IdleState = State {
@@ -121,6 +81,13 @@ UES0301 = Class(TMobileFactoryUnit) {
 
     FinishedBuildingState = State {
         Main = function(self)
+		    if( not self.AnimManip ) then
+				self.AnimManip = CreateAnimator(self)
+			end
+			self.AnimManip:PlayAnim(self:GetBlueprint().Display.AnimationFinishBuild)
+            self.AnimManip:SetAnimationFraction(2)
+            self.AnimManip:SetRate(0.2)
+			self.IsWaiting = true
             self:SetBusy(true)
             local unitBuilding = self.UnitBeingBuilt
             unitBuilding:DetachFrom(true)
@@ -128,20 +95,22 @@ UES0301 = Class(TMobileFactoryUnit) {
             local worldPos = self:CalculateWorldPositionFromRelative({0, 0, -20})
             IssueMoveOffFactory({unitBuilding}, worldPos)
             self:SetBusy(false)
-            ChangeState(self, self.IdleState)
+            ChangeState(self, self.IdleState)		
+			self.AnimManip:PlayAnim(self:GetBlueprint().Display.AnimationFinishBuild)
+            self.AnimManip:SetAnimationFraction(2)
+            self.AnimManip:SetRate(-0.2)
         end,
     },
 
-	RadarThread = function(self)
-        local spinner = CreateRotator(self, 'Spinner05', 'x', nil, 0, 30, -45)
+    RadarThread = function(self)
+        local spinner = CreateRotator(self, 'Spinner01', 'x', nil, 0, 90, -90)
+        self.Trash:Add(spinner)
         while true do
             WaitFor(spinner)
-            spinner:SetTargetSpeed(-45)
+            spinner:SetTargetSpeed(90)
             WaitFor(spinner)
-            spinner:SetTargetSpeed(45)
+            spinner:SetTargetSpeed(-90)
         end
     end,
-
 }
-
 TypeClass = UES0301

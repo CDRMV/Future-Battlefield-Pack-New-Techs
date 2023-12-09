@@ -12,6 +12,7 @@ local TAALinkedRailgun = import('/lua/terranweapons.lua').TAALinkedRailgun
 local TAAFlakArtilleryCannon = import('/lua/terranweapons.lua').TAAFlakArtilleryCannon
 local TDFGaussCannonWeapon = import('/lua/terranweapons.lua').TDFGaussCannonWeapon
 local Entity = import('/lua/sim/Entity.lua').Entity
+local EffectTemplate = import('/lua/effecttemplates.lua')
 
 UES0307b = Class(TAirUnit) {
 

@@ -537,9 +537,9 @@ UnitBlueprint {
             RackBones = {
                 {
                     MuzzleBones = {
-                        'BMuzzle_01',
+                        'B_Muzzle_L',
                     },
-                    RackBone = 'BBarrel_01',
+                    RackBone = 'B_Barrel_L',
                 },
             },
             RackFireTogether = false,
@@ -562,9 +562,9 @@ UnitBlueprint {
             },
             TargetRestrictDisallow = 'UNTARGETABLE',
             TrackingRadius = 1.15,
-            TurretBoneMuzzle = 'BMuzzle_01',
-            TurretBonePitch = 'BBarrel_01',
-            TurretBoneYaw = 'BBarrel_01',
+            TurretBoneMuzzle = 'B_Muzzle_L',
+            TurretBonePitch = 'B_Barrel_L',
+            TurretBoneYaw = 'B_Barrel_L',
             TurretDualManipulators = false,
             TurretPitch = 0,
             TurretPitchRange = 30,
@@ -615,9 +615,9 @@ UnitBlueprint {
             RackBones = {
                 {
                     MuzzleBones = {
-                        'BMuzzle_02',
+                        'B_Muzzle_R',
                     },
-                    RackBone = 'BBarrel_02',
+                    RackBone = 'B_Barrel_R',
                 },
             },
             RackFireTogether = false,
@@ -640,9 +640,9 @@ UnitBlueprint {
             },
             TargetRestrictDisallow = 'UNTARGETABLE',
             TrackingRadius = 1.15,
-            TurretBoneMuzzle = 'BMuzzle_02',
-            TurretBonePitch = 'BBarrel_02',
-            TurretBoneYaw = 'BBarrel_02',
+            TurretBoneMuzzle = 'B_Muzzle_R',
+            TurretBonePitch = 'B_Barrel_R',
+            TurretBoneYaw = 'B_Barrel_R',
             TurretDualManipulators = false,
             TurretPitch = 0,
             TurretPitchRange = 30,

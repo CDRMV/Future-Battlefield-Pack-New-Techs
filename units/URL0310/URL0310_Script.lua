@@ -38,18 +38,6 @@ URL0310 = Class(CWalkingLandUnit)
         EMP = Class(EMPDeathWeapon) {},
     },
     
-    OnStopBeingBuilt = function(self,builder,layer)
-        CWalkingLandUnit.OnStopBeingBuilt(self,builder,layer)
-        local bp = self:GetBlueprint().Defense.AntiMissile
-        local antiMissile = MissileRedirect {
-            Owner = self,
-            Radius = bp.Radius,
-            AttachBone = bp.AttachBone,
-            RedirectRateOfFire = bp.RedirectRateOfFire
-        }
-        self.Trash:Add(antiMissile)
-        self.UnitComplete = true
-    end,
 
     OnKilled = function(self, instigator, type, overkillRatio)
         local emp = self:GetWeaponByLabel('EMP')

@@ -47,6 +47,10 @@ TDFLaserTurboLightWeapon = Class(DefaultProjectileWeapon) {
     FxMuzzleFlash = {'/effects/emitters/flash_02_emit.bp' },
 }
 
+TArtilleryAntiMatterProjectile = Class(DefaultProjectileWeapon) {
+    FxMuzzleFlash = {'/effects/emitters/antiair_muzzle_fire_02_emit.bp',},
+}
+
 TAtomicRayBeamWeapon = Class(DefaultBeamWeapon) {
     BeamType = AtomicRayCollisionBeam,
     FxUpackingChargeEffects = {},

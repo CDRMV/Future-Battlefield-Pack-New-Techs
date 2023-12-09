@@ -10,7 +10,7 @@
 
 local AAirUnit = import('/lua/aeonunits.lua').AAirUnit
 local WeaponsFile = import ('/lua/aeonweapons.lua')
-local ADFLightPhasonLaser = WeaponsFile.ADFLightPhasonLaser
+local ADFLightPhasonLaser = WeaponsFile.ADFPhasonLaser
 
 UAA0201 = Class(AAirUnit) {
     DestroyNoFallRandomChance = 1.1,

@@ -9,6 +9,8 @@
 #****************************************************************************
 
 local TLandUnit = import('/lua/terranunits.lua').TLandUnit
+local EffectUtils = import('/lua/effectutilities.lua')
+local Effects = import('/lua/effecttemplates.lua')
 local TDFGaussCannonWeapon = import('/lua/terranweapons.lua').TDFGaussCannonWeapon
 local TDFPlasmaCannonWeapon = import('/lua/terranweapons.lua').TDFPlasmaCannonWeapon
 

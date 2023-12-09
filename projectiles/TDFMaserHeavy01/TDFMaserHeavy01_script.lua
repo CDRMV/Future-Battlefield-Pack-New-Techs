@@ -8,6 +8,9 @@
 #**  Copyright © 2007 Gas Powered Games, Inc.  All rights reserved.
 #****************************************************************************
 
-TDFMaserHeavy01 = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTprojectiles.lua').THeavyMaserCannonProjectile) {
+THeavyMaserCannonProjectile01 = import('/mods/Future Battlefield Pack New Techs/lua/FBPNTprojectiles.lua').THeavyMaserCannonProjectile
+
+TDFMaserHeavy01 = Class(THeavyMaserCannonProjectile01) {
 }
+
 TypeClass = TDFMaserHeavy01
